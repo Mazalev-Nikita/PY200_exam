@@ -40,6 +40,7 @@ class LinkedList(MutableSequence):
             self.tail = append_node
 
         self._len += 1
+
     def __len__(self):
         return self._len
 

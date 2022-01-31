@@ -6,15 +6,15 @@ class Node:
         self.value = value
         self.next = next_
 
-    def __repr__(self) -> str:
-        return f"Node({self.value}, {None})" if self.next is None else f"Node({self.value}, Node({self.next}))"
+    def is_valid(self, node: Any) -> None:
+        if not isinstance(node, (type(None), Node)):
+            raise TypeError
 
     def __str__(self) -> str:
         return str(self.value)
 
-    def is_valid(self, node: Any) -> None:
-        if not isinstance(node, (type(None), Node)):
-            raise TypeError
+    def __repr__(self) -> str:
+        return f"Node({self.value}, {None})" if self.next is None else f"Node({self.value}, Node({self.next}))"
 
     @property
     def next(self):
@@ -38,14 +38,14 @@ class DoubleLinkedNode(Node):
     @prev.setter
     def prev(self, prev: Optional["Node"]):
         self.is_valid(prev)
-        self._prev = prev
+        self.__prev = prev
 
     def __repr__(self) -> str:
         next_prev = None if self.prev is None else f"DoubleLinkedNode({self.prev})"
-        next_repr = None if self.next is None else f"DoubleLinkedNode({self.next})"  # todo make all
-
+        next_repr = None if self.next is None else f"DoubleLinkedNode({self.next})"
         return f"DoubleLinkedNode({self.value}, {next_prev}, {next_repr})"
 
-
-
 if __name__ == "__main__":
+    node1 = Node(5)
+    node2 = DoubleLinkedNode(6)
+    print(node1, node2)
