@@ -33,7 +33,7 @@ class DoubleLinkedNode(Node):
 
     @property
     def prev(self):
-        return self._prev
+        return self.prev
 
     @prev.setter
     def prev(self, prev: Optional["Node"]):
