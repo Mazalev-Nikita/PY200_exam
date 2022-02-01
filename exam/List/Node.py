@@ -46,6 +46,6 @@ class DoubleLinkedNode(Node):
         return f"DoubleLinkedNode({self.value}, {next_prev}, {next_repr})"
 
 if __name__ == "__main__":
-    node1 = Node(5)
-    node2 = DoubleLinkedNode(6)
+    node1 = Node(1)
+    node2 = DoubleLinkedNode(2)
     print(node1, node2)
